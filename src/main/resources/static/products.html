@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+</head>
+<body ng-controller="ProductController as prodControl">
+<div>
+    <h1>{{prodControl.title1}}</h1>
+        <form>
+            <input placeholder="Product Name" ng-model="prodControl.product.productName" type="text">
+            <input placeholder="Price" ng-model="prodControl.product.price" type="number">
+            <input placeholder="Details" ng-model="prodControl.product.details" type="text">
+            <input placeholder="Available quantity" ng-model="prodControl.product.avalaibleQuantity" type="number" step="1">
+            <input type="submit" value="Add Product" ng-click="prodControl.addProduct(prodControl.product)">
+        </form>
+</div>
+<div>
+    <h1>{{prodControl.title2}}</h1>
+    <ul>
+        <li ng-repeat="p in prodControl.products">{{p.productName}} - quantity: {{p.quantity}} - price: {{p.price}}</li>
+    </ul>
+</div>
+<script type="text/javascript" src="bower_components/angular/angular.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
+<script type="text/javascript" src="js/controllers.js"></script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>Clients</title>
+</head>
+<body ng-controller="ClientController as clientControl">
+<div>
+    <h1>Add Clients</h1>
+    <form>
+        <input ng-model="clientControl.client.firstName" placeholder="First Name"><br>
+        <input ng-model="clientControl.client.lastName" placeholder="Last Name"><br>
+        <input ng-model="clientControl.details.phoneNumber" placeholder="Phone" maxlength="9" type="number"><br>
+        <input ng-model="clientControl.details.address" placeholder="Address"><br>
+        <input ng-model="clientControl.details.idNumber" placeholder="Id Number" maxlength="9"><br>
+        <input type="submit" ng-click="clientControl.addClient(clientControl.client,clientControl.details)">
+    </form>
+</div>
+<div>
+    <h1>All Clients</h1>
+    <ol>
+        <li ng-repeat="c in clientControl.clients">{{c.firstName}} {{c.lastName}} </li>
+    </ol>
+</div>
+    <script src="bower_components/angular/angular.js" type="application/javascript"></script>
+    <script src="js/app.js" type="application/javascript"></script>
+    <script src="js/controllers.js" type="application/javascript"></script>
+</body>
+</html>
